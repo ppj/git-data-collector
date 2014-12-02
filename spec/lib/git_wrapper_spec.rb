@@ -10,18 +10,18 @@ describe GitWrapper do
       allow(Github).to receive(:new).with(oauth_token: ENV['OAUTH_TOKEN'])
     end
 
-    it 'requires the env variable to be set for oauth token' do
+    it 'connects to github when the oauth token is given in env var' do
       ENV['OAUTH_TOKEN']='some sample env token'
       expect(Github).to receive(:new).with(oauth_token: ENV['OAUTH_TOKEN'])
       expect(subject.connect).to be_truthy
     end
 
-    it 'logs error and exits if the env variable for oauth token is not set' do
+    it 'raises error and exits if the env variable for oauth token is not set' do
       ENV['OAUTH_TOKEN']=nil
       expect{subject.connect}.to raise_error(ArgumentError)
     end
 
-    it 'logs error and exits if the env variable for oauth token is set to empty' do
+    it 'raises error and exits if the env variable for oauth token is set to empty' do
       ENV['OAUTH_TOKEN']=''
       expect{subject.connect}.to raise_error(ArgumentError)
     end
