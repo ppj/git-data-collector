@@ -6,4 +6,3 @@ group :development, :test do
 end
 
 gem 'github_api'
-gem 'httparty'
