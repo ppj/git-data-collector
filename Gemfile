@@ -5,4 +5,5 @@ group :development, :test do
   gem 'rspec'
 end
 
+gem 'rake'
 gem 'github_api'
