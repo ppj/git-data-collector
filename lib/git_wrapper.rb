@@ -9,6 +9,8 @@ class GitWrapper
   def list_repo_names
     github = connect
     repos = github.repos.list.map {|repo| repo.name}
+    puts repos.join("\n")
+    repos
   end
 
   private
