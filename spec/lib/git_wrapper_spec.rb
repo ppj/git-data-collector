@@ -23,4 +23,14 @@ describe GitWrapper do
     end
   end
 
+  describe '#list_repo_names' do
+
+    it 'lists the repo names of the account pointed to by the oauth token' do
+      ENV['OAUTH_TOKEN']='1dda08eff926b7a4e83d615d6578d128833a4245'
+      repo_names = Github.repos.list(user: 'ppj').map {|repo| repo.name}
+      expect(subject.list_repo_names).to eq(repo_names)
+    end
+
+  end
+
 end

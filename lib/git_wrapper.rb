@@ -6,6 +6,11 @@ class GitWrapper
     github = Github.new oauth_token: ENV['OAUTH_TOKEN']
   end
 
+  def list_repo_names
+    github = connect
+    repos = github.repos.list.map {|repo| repo.name}
+  end
+
   private
 
   def env_var_not_set?
