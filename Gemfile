@@ -6,4 +6,4 @@ group :development, :test do
 end
 
 gem 'rake'
-gem 'github_api'
+gem 'octokit', '~> 3.0'
